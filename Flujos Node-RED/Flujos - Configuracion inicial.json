@@ -1,0 +1,189 @@
+[
+    {
+        "id": "8008dd95.f2118",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e6751322.9d614",
+        "type": "tjbot-speak",
+        "z": "8008dd95.f2118",
+        "botId": "ef8b7c16.0381b",
+        "mode": "speak",
+        "payload": "",
+        "name": "Hablar",
+        "x": 250,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3626ad52.4e7ee2",
+        "type": "exec",
+        "z": "8008dd95.f2118",
+        "command": " amixer set 'PCM'",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Volumen",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "8a3372f3.b48bc"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3415eac3.008006",
+        "type": "inject",
+        "z": "8008dd95.f2118",
+        "name": "",
+        "topic": "",
+        "payload": "10%",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "3626ad52.4e7ee2"
+            ]
+        ]
+    },
+    {
+        "id": "8a3372f3.b48bc",
+        "type": "debug",
+        "z": "8008dd95.f2118",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 450,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d0aaf102.0eb56",
+        "type": "watson-translator",
+        "z": "8008dd95.f2118",
+        "name": "Español a inglés",
+        "action": "translate",
+        "basemodel": "en-nl",
+        "domain": "general",
+        "srclang": "es",
+        "destlang": "en",
+        "password": "",
+        "apikey": "igF8-eV_U1fDrvyV0IP-uiKVh18GzAZDh1pgS4mZpQjy",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "es",
+        "destlanghidden": "en",
+        "basemodelhidden": "en-nl",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "neural": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 440,
+        "y": 97,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c439131a.5b183",
+        "type": "openweathermap",
+        "z": "8008dd95.f2118",
+        "name": "El clima",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Santa fe",
+        "country": "México",
+        "language": "es",
+        "x": 620,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "67f3ef91.0c6d3",
+        "type": "twitter out",
+        "z": "8008dd95.f2118",
+        "twitter": "",
+        "name": "Tweet",
+        "x": 90,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5f06bd01.171e94",
+        "type": "inject",
+        "z": "8008dd95.f2118",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 80,
+        "y": 240,
+        "wires": [
+            [
+                "61f6cb65.c9df24"
+            ]
+        ]
+    },
+    {
+        "id": "61f6cb65.c9df24",
+        "type": "exec",
+        "z": "8008dd95.f2118",
+        "command": "shutdown now",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Apagar",
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ef8b7c16.0381b",
+        "type": "tjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "María",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "speakerDeviceId": "plughw:0,0"
+    }
+]
