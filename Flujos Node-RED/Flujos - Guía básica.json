@@ -1,1 +1,629 @@
-[{"id":"14bb80fc.fb67df","type":"tab","label":"Guía básica","disabled":false,"info":""},{"id":"bf1303a6.5dea7","type":"inject","z":"14bb80fc.fb67df","name":"Saludar","topic":"","payload":"Hola a todos","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":"","x":190,"y":240,"wires":[["2e0b0707.aa7788"]]},{"id":"9d5df786.c00a78","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"wave","name":"Mover brazo","x":600,"y":218,"wires":[]},{"id":"62cb3ce6.3bb404","type":"tjbot-listen","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","name":"Escuchar","x":660,"y":680,"wires":[["f7a075fa.132138"]]},{"id":"3beec6e7.68bc7a","type":"tjbot-see","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"see","verticalFlip":false,"horizontalFlip":false,"width":960,"height":720,"name":"Ver","x":370,"y":940,"wires":[["f07ca06.52c276","f146f453.83da88","74faf0f9.a5904"]]},{"id":"12fcc28c.481c8d","type":"debug","z":"14bb80fc.fb67df","name":"Traducción","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","x":650,"y":1099,"wires":[]},{"id":"24d7df29.6939f","type":"inject","z":"14bb80fc.fb67df","name":"","topic":"","payload":"pais","payloadType":"str","repeat":"","crontab":"","once":false,"x":184,"y":1140,"wires":[["606fe80e.8bdf38"]]},{"id":"927e1b08.4287e8","type":"inject","z":"14bb80fc.fb67df","name":"","topic":"","payload":"Encender foco","payloadType":"str","repeat":"","crontab":"","once":false,"x":190,"y":400,"wires":[["8a173a17.1d5ce8","559d15c6.b0241c"]]},{"id":"8a173a17.1d5ce8","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"random","duration":"","name":"Color","x":490,"y":380,"wires":[]},{"id":"fad8120c.0fa4d","type":"inject","z":"14bb80fc.fb67df","name":"Comenzar a escuchar","topic":"","payload":"start","payloadType":"str","repeat":"","crontab":"","once":false,"x":220,"y":640,"wires":[["8ecaa9e8.11ade8","bfc75e00.7f096","f17ad94c.efc568"]]},{"id":"983ad790.556378","type":"inject","z":"14bb80fc.fb67df","name":"Parar de escuchar","topic":"","payload":"stop","payloadType":"str","repeat":"","crontab":"","once":false,"x":210,"y":720,"wires":[["8ecaa9e8.11ade8","86625ac0.70aaf8","ee6c5d65.4d11"]]},{"id":"8ecaa9e8.11ade8","type":"change","z":"14bb80fc.fb67df","name":"","rules":[{"t":"set","p":"mode","pt":"msg","to":"payload","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":463,"y":680,"wires":[["62cb3ce6.3bb404"]]},{"id":"f7a075fa.132138","type":"debug","z":"14bb80fc.fb67df","name":"Escribir","active":true,"console":"false","complete":"payload","x":854,"y":679,"wires":[]},{"id":"73940bd.e9560f4","type":"inject","z":"14bb80fc.fb67df","name":"Ver objeto","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":185,"y":940,"wires":[["3beec6e7.68bc7a"]]},{"id":"f07ca06.52c276","type":"debug","z":"14bb80fc.fb67df","name":"Escribir","active":true,"console":"false","complete":"payload","x":565,"y":940,"wires":[]},{"id":"3a40eb5d.639a94","type":"tjbot-speak","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"speak","payload":"","name":"","x":650,"y":1340,"wires":[["954bd47e.701c88","4a634df.4cd99b4"]]},{"id":"a1ac340.62884d","type":"template","z":"14bb80fc.fb67df","name":"Deletrear","field":"payload","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"{{payload}}\nse deletrea\n<speak>\n    <say-as interpret-as=\"letters\">{{payload}}</say-as>\n</speak>","output":"str","x":413,"y":1340,"wires":[["3a40eb5d.639a94"]]},{"id":"62f1ab22.47eac4","type":"inject","z":"14bb80fc.fb67df","name":"","topic":"","payload":"estudiar","payloadType":"str","repeat":"","crontab":"","once":false,"x":190,"y":1340,"wires":[["a1ac340.62884d"]]},{"id":"954bd47e.701c88","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"wave","name":"Mover brazo","x":881,"y":1370,"wires":[]},{"id":"559d15c6.b0241c","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"wave","name":"Mover brazo","x":510,"y":420,"wires":[]},{"id":"bfc75e00.7f096","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"raisearm","name":"Arriba brazo","x":470,"y":620,"wires":[]},{"id":"86625ac0.70aaf8","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"lowerarm","name":"Abajo brazo","x":470,"y":744,"wires":[]},{"id":"f146f453.83da88","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"wave","name":"Mover brazo","x":575,"y":990,"wires":[]},{"id":"394a7c1c.fba9a4","type":"tjbot-wave","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","motion":"wave","name":"Mover brazo","x":650,"y":1139,"wires":[]},{"id":"f17ad94c.efc568","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"green","duration":"","name":"Verde","x":450,"y":540,"wires":[]},{"id":"ee6c5d65.4d11","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"red","duration":"","name":"Rojo","x":450,"y":804,"wires":[]},{"id":"74faf0f9.a5904","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"random","duration":"","name":"Color","x":555,"y":890,"wires":[]},{"id":"278afabe.e08516","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"random","duration":"","name":"Color","x":630,"y":1186,"wires":[]},{"id":"4a634df.4cd99b4","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"random","duration":"","name":"Color","x":861,"y":1322,"wires":[]},{"id":"4f74f92b.9bb5a8","type":"tjbot-shine","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"shine","color":"violetred","duration":"","name":"Color","x":580,"y":258,"wires":[]},{"id":"606fe80e.8bdf38","type":"watson-translator","z":"14bb80fc.fb67df","name":"","action":"translate","basemodel":"en-tr","domain":"general","srclang":"es","destlang":"en","password":"","apikey":"igF8-eV_U1fDrvyV0IP-uiKVh18GzAZDh1pgS4mZpQjy","custom":"","domainhidden":"general","srclanghidden":"es","destlanghidden":"en","basemodelhidden":"","customhidden":"","filetype":"forcedglossary","trainid":"","lgparams2":true,"neural":false,"default-endpoint":true,"service-endpoint":"https://gateway.watsonplatform.net/language-translator/api","x":380,"y":1140,"wires":[["12fcc28c.481c8d","394a7c1c.fba9a4","278afabe.e08516"]]},{"id":"fef08a13.025898","type":"comment","z":"14bb80fc.fb67df","name":"Hablar","info":"","x":150,"y":180,"wires":[]},{"id":"2a4654ee.38998c","type":"comment","z":"14bb80fc.fb67df","name":"Encender LED","info":"","x":180,"y":347,"wires":[]},{"id":"e30e448.09d67b8","type":"comment","z":"14bb80fc.fb67df","name":"Escuchar","info":"","x":160,"y":540,"wires":[]},{"id":"73480527.3ea4fc","type":"comment","z":"14bb80fc.fb67df","name":"Reconocimiento visual","info":"","x":200,"y":880,"wires":[]},{"id":"2410507e.e617a","type":"comment","z":"14bb80fc.fb67df","name":"Traducción","info":"","x":160,"y":1080,"wires":[]},{"id":"902e01ae.fcf0f","type":"comment","z":"14bb80fc.fb67df","name":"Deletrear","info":"","x":180,"y":1280,"wires":[]},{"id":"2e0b0707.aa7788","type":"tjbot-speak","z":"14bb80fc.fb67df","botId":"b4dc7b45.7ef148","mode":"speak","payload":"","name":"Hablar","x":374.00000762939453,"y":239.00000190734863,"wires":[["9d5df786.c00a78","4f74f92b.9bb5a8"]]},{"id":"72bef8c3.f61358","type":"exec","z":"14bb80fc.fb67df","command":" amixer set 'PCM'","addpay":true,"append":"","useSpawn":"false","timer":"","oldrc":false,"name":"Volumen","x":340,"y":80,"wires":[["6d94092e.314df8"],[],[]]},{"id":"41a43c39.b50b24","type":"inject","z":"14bb80fc.fb67df","name":"","topic":"","payload":"10%","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":170,"y":80,"wires":[["72bef8c3.f61358"]]},{"id":"6d94092e.314df8","type":"debug","z":"14bb80fc.fb67df","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":530,"y":80,"wires":[]},{"id":"ae5450f9.608e5","type":"comment","z":"14bb80fc.fb67df","name":"Ajustar volumen","info":"","x":140,"y":40,"wires":[]},{"id":"b4dc7b45.7ef148","type":"tjbot-config","z":"","botGender":"female","name":"María","listen":"es-ES","speak":"es-ES","hasServo":true,"hasLED":true,"hasSpeaker":true,"hasMicrophone":true,"hasCamera":true,"speakerDeviceId":"plughw:0,0"}]
+[
+    {
+        "id": "48a29749.2f6b38",
+        "type": "tab",
+        "label": "Guía básica",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c1740678.f5fa18",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "Saludar",
+        "topic": "",
+        "payload": "Hola a todos",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "4b38dd72.15c104"
+            ]
+        ]
+    },
+    {
+        "id": "e12a4659.ee8178",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "wave",
+        "name": "Mover brazo",
+        "x": 600,
+        "y": 218,
+        "wires": []
+    },
+    {
+        "id": "321ec4.97e1613c",
+        "type": "tjbot-listen",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "name": "Escuchar",
+        "x": 660,
+        "y": 680,
+        "wires": [
+            [
+                "6fc2d85b.f18d58"
+            ]
+        ]
+    },
+    {
+        "id": "7b8bc354.89ebac",
+        "type": "tjbot-see",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "see",
+        "verticalFlip": false,
+        "horizontalFlip": false,
+        "width": 960,
+        "height": 720,
+        "name": "Ver",
+        "x": 370,
+        "y": 940,
+        "wires": [
+            [
+                "92662e2a.c5562",
+                "55283c65.8350c4",
+                "867614db.ded338"
+            ]
+        ]
+    },
+    {
+        "id": "7eb16409.dad64c",
+        "type": "debug",
+        "z": "48a29749.2f6b38",
+        "name": "Traducción",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "response.translations[0].translation",
+        "x": 550,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "e9eb7632.833b58",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "",
+        "topic": "",
+        "payload": "pais",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 184,
+        "y": 1140,
+        "wires": [
+            [
+                "ccfac434.a19ab8"
+            ]
+        ]
+    },
+    {
+        "id": "2e5c968d.786c7a",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "",
+        "topic": "",
+        "payload": "Encender foco",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "721e6e6c.84153",
+                "8bce3808.3b6f68"
+            ]
+        ]
+    },
+    {
+        "id": "721e6e6c.84153",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "random",
+        "duration": "",
+        "name": "Color",
+        "x": 490,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "15316c54.260384",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "Comenzar a escuchar",
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 220,
+        "y": 640,
+        "wires": [
+            [
+                "81107281.5b76d",
+                "6e117a65.4b2e04",
+                "7d102a0a.9e87e4"
+            ]
+        ]
+    },
+    {
+        "id": "d92f34aa.9e0d28",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "Parar de escuchar",
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 210,
+        "y": 720,
+        "wires": [
+            [
+                "81107281.5b76d",
+                "b2476910.6fce38",
+                "96a6b22b.8c3e9"
+            ]
+        ]
+    },
+    {
+        "id": "81107281.5b76d",
+        "type": "change",
+        "z": "48a29749.2f6b38",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mode",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 463,
+        "y": 680,
+        "wires": [
+            [
+                "321ec4.97e1613c"
+            ]
+        ]
+    },
+    {
+        "id": "6fc2d85b.f18d58",
+        "type": "debug",
+        "z": "48a29749.2f6b38",
+        "name": "Escribir",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 854,
+        "y": 679,
+        "wires": []
+    },
+    {
+        "id": "f28647fb.0a4e68",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "Ver objeto",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 185,
+        "y": 940,
+        "wires": [
+            [
+                "7b8bc354.89ebac"
+            ]
+        ]
+    },
+    {
+        "id": "92662e2a.c5562",
+        "type": "debug",
+        "z": "48a29749.2f6b38",
+        "name": "Escribir",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 565,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "2ee72536.9d6b4a",
+        "type": "tjbot-speak",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "speak",
+        "payload": "",
+        "name": "",
+        "x": 650,
+        "y": 1340,
+        "wires": [
+            [
+                "d44ea5da.7ee728",
+                "3eaee7e8.380b58"
+            ]
+        ]
+    },
+    {
+        "id": "6258eb8e.3f8224",
+        "type": "template",
+        "z": "48a29749.2f6b38",
+        "name": "Deletrear",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload}}\nse deletrea\n<speak>\n    <say-as interpret-as=\"letters\">{{payload}}</say-as>\n</speak>",
+        "output": "str",
+        "x": 413,
+        "y": 1340,
+        "wires": [
+            [
+                "2ee72536.9d6b4a"
+            ]
+        ]
+    },
+    {
+        "id": "20fb21af.294a3e",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "",
+        "topic": "",
+        "payload": "estudiar",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 190,
+        "y": 1340,
+        "wires": [
+            [
+                "6258eb8e.3f8224"
+            ]
+        ]
+    },
+    {
+        "id": "d44ea5da.7ee728",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "wave",
+        "name": "Mover brazo",
+        "x": 881,
+        "y": 1370,
+        "wires": []
+    },
+    {
+        "id": "8bce3808.3b6f68",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "wave",
+        "name": "Mover brazo",
+        "x": 510,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "6e117a65.4b2e04",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "raisearm",
+        "name": "Arriba brazo",
+        "x": 470,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "b2476910.6fce38",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "lowerarm",
+        "name": "Abajo brazo",
+        "x": 470,
+        "y": 744,
+        "wires": []
+    },
+    {
+        "id": "55283c65.8350c4",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "wave",
+        "name": "Mover brazo",
+        "x": 575,
+        "y": 990,
+        "wires": []
+    },
+    {
+        "id": "d1957861.39e808",
+        "type": "tjbot-wave",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "motion": "wave",
+        "name": "Mover brazo",
+        "x": 550,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "7d102a0a.9e87e4",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "green",
+        "duration": "",
+        "name": "Verde",
+        "x": 450,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "96a6b22b.8c3e9",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "red",
+        "duration": "",
+        "name": "Rojo",
+        "x": 450,
+        "y": 804,
+        "wires": []
+    },
+    {
+        "id": "867614db.ded338",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "random",
+        "duration": "",
+        "name": "Color",
+        "x": 555,
+        "y": 890,
+        "wires": []
+    },
+    {
+        "id": "bc8df25e.ff412",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "random",
+        "duration": "",
+        "name": "Color",
+        "x": 530,
+        "y": 1187,
+        "wires": []
+    },
+    {
+        "id": "3eaee7e8.380b58",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "random",
+        "duration": "",
+        "name": "Color",
+        "x": 861,
+        "y": 1322,
+        "wires": []
+    },
+    {
+        "id": "d27be95a.6042e8",
+        "type": "tjbot-shine",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "shine",
+        "color": "violetred",
+        "duration": "",
+        "name": "Color",
+        "x": 580,
+        "y": 258,
+        "wires": []
+    },
+    {
+        "id": "53198ea2.eb032",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Hablar",
+        "info": "",
+        "x": 150,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d1574216.071e4",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Encender LED",
+        "info": "",
+        "x": 180,
+        "y": 347,
+        "wires": []
+    },
+    {
+        "id": "e833eed3.df5b2",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Escuchar",
+        "info": "",
+        "x": 160,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b4b60734.474ef8",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Reconocimiento visual",
+        "info": "",
+        "x": 200,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "377d67c9.c79f58",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Traducción",
+        "info": "",
+        "x": 160,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "29a2b155.b04e0e",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Deletrear",
+        "info": "",
+        "x": 180,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "4b38dd72.15c104",
+        "type": "tjbot-speak",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "mode": "speak",
+        "payload": "",
+        "name": "Hablar",
+        "x": 374.00000762939453,
+        "y": 239.00000190734863,
+        "wires": [
+            [
+                "e12a4659.ee8178",
+                "d27be95a.6042e8"
+            ]
+        ]
+    },
+    {
+        "id": "e7da9583.a47688",
+        "type": "exec",
+        "z": "48a29749.2f6b38",
+        "command": " amixer set 'PCM'",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Volumen",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "27fdc027.6112a"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5f68ba7f.7e1a14",
+        "type": "inject",
+        "z": "48a29749.2f6b38",
+        "name": "",
+        "topic": "",
+        "payload": "10%",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "e7da9583.a47688"
+            ]
+        ]
+    },
+    {
+        "id": "27fdc027.6112a",
+        "type": "debug",
+        "z": "48a29749.2f6b38",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 530,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a2e575c9.5b4488",
+        "type": "comment",
+        "z": "48a29749.2f6b38",
+        "name": "Ajustar volumen",
+        "info": "",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ccfac434.a19ab8",
+        "type": "tjbot-translate",
+        "z": "48a29749.2f6b38",
+        "botId": "374da715.aec408",
+        "srcLang": "es",
+        "targetLang": "en",
+        "mode": "translate",
+        "name": "",
+        "x": 360,
+        "y": 1140,
+        "wires": [
+            [
+                "7eb16409.dad64c",
+                "d1957861.39e808",
+                "bc8df25e.ff412"
+            ]
+        ]
+    },
+    {
+        "id": "374da715.aec408",
+        "type": "tjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "Prueba",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "speakerDeviceId": "plughw:0,0"
+    }
+]

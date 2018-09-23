@@ -1,1 +1,770 @@
-[{"id":"e97eab1a.e45178","type":"tab","label":"Guía avanzada","disabled":false,"info":""},{"id":"63c505f8.7b113c","type":"inject","z":"e97eab1a.e45178","name":"Iniciar escucha","topic":"","payload":"start","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":240,"y":240,"wires":[["71d6394e.5fe768"]]},{"id":"272af31b.84ffcc","type":"inject","z":"e97eab1a.e45178","name":"Detener escucha","topic":"","payload":"stop","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":240,"y":360,"wires":[["71d6394e.5fe768"]]},{"id":"71d6394e.5fe768","type":"change","z":"e97eab1a.e45178","name":"","rules":[{"t":"set","p":"mode","pt":"msg","to":"payload","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":460,"y":300,"wires":[["96b572ac.f284c"]]},{"id":"96b572ac.f284c","type":"tjbot-listen","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","name":"","x":640,"y":300,"wires":[["26be4ed0.0d5932","26c0de6e.498042"]],"icon":"node-red-node-watson/LanguageTranslator25x25.png"},{"id":"25d655ff.27dbfa","type":"tjbot-speak","z":"e97eab1a.e45178","botId":"523f4422.98e68c","mode":"speak","payload":"","name":"William habla","x":1030,"y":300,"wires":[[]]},{"id":"26be4ed0.0d5932","type":"watson-translator","z":"e97eab1a.e45178","name":"Español a inglés","action":"translate","basemodel":"en-nl","domain":"general","srclang":"es","destlang":"en","password":"","apikey":"igF8-eV_U1fDrvyV0IP-uiKVh18GzAZDh1pgS4mZpQjy","custom":"","domainhidden":"general","srclanghidden":"es","destlanghidden":"en","basemodelhidden":"en-nl","customhidden":"","filetype":"forcedglossary","trainid":"","lgparams2":true,"neural":false,"default-endpoint":true,"service-endpoint":"https://gateway.watsonplatform.net/language-translator/api","x":810,"y":300,"wires":[["25d655ff.27dbfa"]]},{"id":"7fb5d20d.aac5dc","type":"inject","z":"e97eab1a.e45178","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":220,"y":560,"wires":[["d23d62f4.dc43c"]]},{"id":"d23d62f4.dc43c","type":"tjbot-see","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"see","verticalFlip":false,"horizontalFlip":false,"width":960,"height":720,"name":"","x":390,"y":560,"wires":[["e00e6297.23681"]]},{"id":"e00e6297.23681","type":"function","z":"e97eab1a.e45178","name":"Filtro","func":"var elementos = \"En este momento estoy viendo...\";\n\nfor(var elemento in msg.payload){\n    elementos += msg.payload[elemento].class + \", \";\n}\nmsg.payload = elementos;\nreturn msg;\n","outputs":1,"noerr":0,"x":540,"y":560,"wires":[["2ee14c28.6c56e4"]]},{"id":"e0ddfb57.c65618","type":"tjbot-speak","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"speak","payload":"","name":"","x":930,"y":560,"wires":[[]]},{"id":"2ee14c28.6c56e4","type":"watson-translator","z":"e97eab1a.e45178","name":"","action":"translate","basemodel":"en-tr","domain":"general","srclang":"en","destlang":"es","password":"","apikey":"igF8-eV_U1fDrvyV0IP-uiKVh18GzAZDh1pgS4mZpQjy","custom":"","domainhidden":"general","srclanghidden":"en","destlanghidden":"es","basemodelhidden":"en-tr","customhidden":"","filetype":"forcedglossary","trainid":"","lgparams2":true,"neural":false,"default-endpoint":true,"service-endpoint":"https://gateway.watsonplatform.net/language-translator/api","x":730,"y":560,"wires":[["e0ddfb57.c65618"]]},{"id":"2ca58aeb.78beb6","type":"inject","z":"e97eab1a.e45178","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":240,"y":1060,"wires":[["2bb6c35a.5e62bc"]]},{"id":"2bb6c35a.5e62bc","type":"openweathermap","z":"e97eab1a.e45178","name":"El clima","wtype":"current","lon":"","lat":"","city":"Santa fe","country":"México","language":"es","x":400,"y":1060,"wires":[["9b0142e3.f57c6"]]},{"id":"9b0142e3.f57c6","type":"function","z":"e97eab1a.e45178","name":"Reportando el clima","func":"msg.payload = \"El reporte del clima es, \" + msg.payload.detail\n    + \", tenemos una temperatura de \" + msg.payload.tempc\n    + \"grados, y humedad máxima del \" + msg.payload.humidity\n    + \" porciento.\";\nreturn msg;\n","outputs":1,"noerr":0,"x":600,"y":1060,"wires":[["6d8f6bff.d93994"]]},{"id":"6d8f6bff.d93994","type":"tjbot-speak","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"speak","payload":"","name":"","x":810,"y":1060,"wires":[["3ea41827.21cb88"]]},{"id":"2d48dc94.74e154","type":"inject","z":"e97eab1a.e45178","name":"","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":220,"y":1220,"wires":[["9b737289.c6099"]]},{"id":"9b737289.c6099","type":"tjbot-see","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"takephoto","verticalFlip":false,"horizontalFlip":true,"width":960,"height":720,"name":"Selfie","x":390,"y":1220,"wires":[["46c62036.14588"]]},{"id":"46c62036.14588","type":"file in","z":"e97eab1a.e45178","name":"","filename":"","format":"","chunk":false,"sendError":false,"x":580,"y":1220,"wires":[["60d1dcb2.52c214"]]},{"id":"60d1dcb2.52c214","type":"change","z":"e97eab1a.e45178","name":"","rules":[{"t":"set","p":"media","pt":"msg","to":"payload","tot":"msg"},{"t":"set","p":"payload","pt":"msg","to":"Hola desde #TJBot","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":780,"y":1220,"wires":[["5c26ac82.fbe684"]]},{"id":"5c26ac82.fbe684","type":"twitter out","z":"e97eab1a.e45178","twitter":"","name":"Tweet","x":1010,"y":1220,"wires":[]},{"id":"fd09d9ed.a05ff8","type":"comment","z":"e97eab1a.e45178","name":"Tomar una selfie","info":"","x":220,"y":1160,"wires":[]},{"id":"83676034.561fd","type":"comment","z":"e97eab1a.e45178","name":"Reportar el clima","info":"","x":220,"y":980,"wires":[]},{"id":"fce2baee.9e75c8","type":"comment","z":"e97eab1a.e45178","name":"Describir lo que se ve","info":"","x":240,"y":480,"wires":[]},{"id":"d931462d.a3fe98","type":"comment","z":"e97eab1a.e45178","name":"Traducir un idioma","info":"","x":230,"y":180,"wires":[]},{"id":"3ea41827.21cb88","type":"twitter out","z":"e97eab1a.e45178","twitter":"","name":"Tweet","x":1010,"y":1060,"wires":[]},{"id":"26c0de6e.498042","type":"debug","z":"e97eab1a.e45178","name":"Lo que escuché","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","x":820,"y":220,"wires":[]},{"id":"72b5404c.d26a2","type":"tjbot-analyze-tone","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","tones":"emotion","name":"Analizar emociones","x":390,"y":840,"wires":[["78f6f44a.fae9dc"]]},{"id":"78f6f44a.fae9dc","type":"function","z":"e97eab1a.e45178","name":"La emoción más importante","func":"msg.payload = msg.response.tones.reduce( function(a, b) {return (a.score > b.score) ? a : b; }).tone_name;\nreturn msg;\n","outputs":1,"noerr":0,"x":660,"y":840,"wires":[["6e1b9d13.611354","dc754476.eaa0c8"]]},{"id":"6e1b9d13.611354","type":"switch","z":"e97eab1a.e45178","name":"Decidiendo como te sientes","property":"payload","propertyType":"msg","rules":[{"t":"eq","v":"Anger","vt":"str"},{"t":"eq","v":"Disgust","vt":"str"},{"t":"eq","v":"Fear","vt":"str"},{"t":"eq","v":"Joy","vt":"str"},{"t":"eq","v":"Sadness","vt":"str"}],"checkall":"true","repair":false,"outputs":5,"x":980,"y":840,"wires":[["e2ef0e63.45e86"],["4963e1de.8f02b"],["a2218079.f4323"],["4e7961a0.39d76"],["d9de2660.cf5788"]]},{"id":"e2ef0e63.45e86","type":"tjbot-shine","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"pulse","color":"red","duration":"2","name":"Enojado","x":1240,"y":740,"wires":[]},{"id":"4963e1de.8f02b","type":"tjbot-shine","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"pulse","color":"green","duration":"2","name":"Disgustado","x":1250,"y":780,"wires":[]},{"id":"a2218079.f4323","type":"tjbot-shine","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"pulse","color":"magenta","duration":"2","name":"Miedo","x":1230,"y":820,"wires":[]},{"id":"4e7961a0.39d76","type":"tjbot-shine","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"pulse","color":"yellow","duration":"2","name":"Alegría","x":1240,"y":860,"wires":[]},{"id":"d9de2660.cf5788","type":"tjbot-shine","z":"e97eab1a.e45178","botId":"b4dc7b45.7ef148","mode":"pulse","color":"blue","duration":"2","name":"Triste","x":1230,"y":900,"wires":[]},{"id":"a341e44e.aaa3c8","type":"comment","z":"e97eab1a.e45178","name":"Analizar emociones","info":"","x":230,"y":700,"wires":[]},{"id":"dc754476.eaa0c8","type":"debug","z":"e97eab1a.e45178","name":"Sentimiento","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","x":930,"y":740,"wires":[]},{"id":"6f6141da.bc4b3","type":"debug","z":"e97eab1a.e45178","name":"Tweet","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"payload","x":360,"y":780,"wires":[]},{"id":"6a5eb592.07529c","type":"exec","z":"e97eab1a.e45178","command":" amixer set 'PCM'","addpay":true,"append":"","useSpawn":"false","timer":"","oldrc":false,"name":"Volumen","x":340,"y":80,"wires":[["87800500.c0e428"],[],[]]},{"id":"6e1455d8.c9609c","type":"inject","z":"e97eab1a.e45178","name":"","topic":"","payload":"10%","payloadType":"str","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":170,"y":80,"wires":[["6a5eb592.07529c"]]},{"id":"87800500.c0e428","type":"debug","z":"e97eab1a.e45178","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":530,"y":80,"wires":[]},{"id":"1e817c32.7163e4","type":"comment","z":"e97eab1a.e45178","name":"Ajustar volumen","info":"","x":140,"y":40,"wires":[]},{"id":"b4dc7b45.7ef148","type":"tjbot-config","z":"","botGender":"female","name":"María","listen":"es-ES","speak":"es-ES","hasServo":true,"hasLED":true,"hasSpeaker":true,"hasMicrophone":true,"hasCamera":true,"speakerDeviceId":"plughw:0,0"},{"id":"523f4422.98e68c","type":"tjbot-config","z":"","botGender":"male","name":"William","listen":"en-US","speak":"en-GB","hasServo":true,"hasLED":true,"hasSpeaker":true,"hasMicrophone":true,"hasCamera":true,"speakerDeviceId":"plughw:0,0"}]
+[
+    {
+        "id": "1120416.10faebf",
+        "type": "tab",
+        "label": "Guía avanzada",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1b981a84.75df95",
+        "type": "inject",
+        "z": "1120416.10faebf",
+        "name": "Iniciar escucha",
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "e291b67b.4a9628"
+            ]
+        ]
+    },
+    {
+        "id": "a77f5b53.436598",
+        "type": "inject",
+        "z": "1120416.10faebf",
+        "name": "Detener escucha",
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 240,
+        "y": 360,
+        "wires": [
+            [
+                "e291b67b.4a9628"
+            ]
+        ]
+    },
+    {
+        "id": "e291b67b.4a9628",
+        "type": "change",
+        "z": "1120416.10faebf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mode",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "3e87e9b.0bd6516"
+            ]
+        ]
+    },
+    {
+        "id": "3e87e9b.0bd6516",
+        "type": "tjbot-listen",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "name": "",
+        "x": 640,
+        "y": 300,
+        "wires": [
+            [
+                "f764b1ef.e05fc",
+                "a31e02d7.d975"
+            ]
+        ],
+        "icon": "node-red-node-watson/LanguageTranslator25x25.png"
+    },
+    {
+        "id": "ac6c22dd.0375a",
+        "type": "tjbot-speak",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "speak",
+        "payload": "",
+        "name": "William habla",
+        "x": 1170,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ef376466.bec068",
+        "type": "inject",
+        "z": "1120416.10faebf",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 560,
+        "wires": [
+            [
+                "e3ebb8b5.e36718"
+            ]
+        ]
+    },
+    {
+        "id": "e3ebb8b5.e36718",
+        "type": "tjbot-see",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "see",
+        "verticalFlip": false,
+        "horizontalFlip": false,
+        "width": 960,
+        "height": 720,
+        "name": "",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "f81a4a70.0c3b48"
+            ]
+        ]
+    },
+    {
+        "id": "f81a4a70.0c3b48",
+        "type": "function",
+        "z": "1120416.10faebf",
+        "name": "Filtro",
+        "func": "var elementos = \"En este momento estoy viendo...\";\n\nfor(var elemento in msg.payload){\n    elementos += msg.payload[elemento].class + \", \";\n}\nmsg.payload = elementos;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 560,
+        "wires": [
+            [
+                "5eaf9324.07152c"
+            ]
+        ]
+    },
+    {
+        "id": "3060fdf2.2136c2",
+        "type": "tjbot-speak",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "speak",
+        "payload": "",
+        "name": "",
+        "x": 1050,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f2cc5b7.ac178c",
+        "type": "inject",
+        "z": "1120416.10faebf",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 240,
+        "y": 1060,
+        "wires": [
+            [
+                "bb0e3b19.eef3d8"
+            ]
+        ]
+    },
+    {
+        "id": "bb0e3b19.eef3d8",
+        "type": "openweathermap",
+        "z": "1120416.10faebf",
+        "name": "El clima",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Santa fe",
+        "country": "México",
+        "language": "es",
+        "x": 400,
+        "y": 1060,
+        "wires": [
+            [
+                "2db9a120.f0338e"
+            ]
+        ]
+    },
+    {
+        "id": "2db9a120.f0338e",
+        "type": "function",
+        "z": "1120416.10faebf",
+        "name": "Reportando el clima",
+        "func": "msg.payload = \"El reporte del clima es, \" + msg.payload.detail\n    + \", tenemos una temperatura de \" + msg.payload.tempc\n    + \"grados, y humedad máxima del \" + msg.payload.humidity\n    + \" porciento.\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 600,
+        "y": 1060,
+        "wires": [
+            [
+                "7263c403.3a707c"
+            ]
+        ]
+    },
+    {
+        "id": "7263c403.3a707c",
+        "type": "tjbot-speak",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "speak",
+        "payload": "",
+        "name": "",
+        "x": 810,
+        "y": 1060,
+        "wires": [
+            [
+                "c6616754.c48138"
+            ]
+        ]
+    },
+    {
+        "id": "b55cb71d.967c18",
+        "type": "inject",
+        "z": "1120416.10faebf",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 220,
+        "y": 1220,
+        "wires": [
+            [
+                "12538f5d.5a99d1"
+            ]
+        ]
+    },
+    {
+        "id": "12538f5d.5a99d1",
+        "type": "tjbot-see",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "takephoto",
+        "verticalFlip": false,
+        "horizontalFlip": true,
+        "width": 960,
+        "height": 720,
+        "name": "Selfie",
+        "x": 390,
+        "y": 1220,
+        "wires": [
+            [
+                "3f7425f0.b86d5a"
+            ]
+        ]
+    },
+    {
+        "id": "3f7425f0.b86d5a",
+        "type": "file in",
+        "z": "1120416.10faebf",
+        "name": "",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "x": 580,
+        "y": 1220,
+        "wires": [
+            [
+                "5be5869e.0913d8"
+            ]
+        ]
+    },
+    {
+        "id": "5be5869e.0913d8",
+        "type": "change",
+        "z": "1120416.10faebf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "media",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Hola desde #TJBot",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1220,
+        "wires": [
+            [
+                "7940edc9.d83a14"
+            ]
+        ]
+    },
+    {
+        "id": "7940edc9.d83a14",
+        "type": "twitter out",
+        "z": "1120416.10faebf",
+        "twitter": "",
+        "name": "Tweet",
+        "x": 1010,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "7d619141.1f3e7",
+        "type": "comment",
+        "z": "1120416.10faebf",
+        "name": "Tomar una selfie",
+        "info": "",
+        "x": 220,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "26d671d6.7222ce",
+        "type": "comment",
+        "z": "1120416.10faebf",
+        "name": "Reportar el clima",
+        "info": "",
+        "x": 220,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "6a96fd89.4c4c94",
+        "type": "comment",
+        "z": "1120416.10faebf",
+        "name": "Describir lo que se ve",
+        "info": "",
+        "x": 240,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c29d3100.4173a",
+        "type": "comment",
+        "z": "1120416.10faebf",
+        "name": "Traducir un idioma",
+        "info": "",
+        "x": 230,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c6616754.c48138",
+        "type": "twitter out",
+        "z": "1120416.10faebf",
+        "twitter": "",
+        "name": "Tweet",
+        "x": 1010,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "f764b1ef.e05fc",
+        "type": "debug",
+        "z": "1120416.10faebf",
+        "name": "Lo que escuché",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 820,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ac3df8fd.6162a8",
+        "type": "tjbot-analyze-tone",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "tones": "emotion",
+        "name": "Analizar emociones",
+        "x": 390,
+        "y": 840,
+        "wires": [
+            [
+                "1607a738.22f549"
+            ]
+        ]
+    },
+    {
+        "id": "1607a738.22f549",
+        "type": "function",
+        "z": "1120416.10faebf",
+        "name": "La emoción más importante",
+        "func": "msg.payload = msg.response.tones.reduce( function(a, b) {return (a.score > b.score) ? a : b; }).tone_name;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 660,
+        "y": 840,
+        "wires": [
+            [
+                "1a1bd366.4ab2fd",
+                "46e16079.358fc"
+            ]
+        ]
+    },
+    {
+        "id": "1a1bd366.4ab2fd",
+        "type": "switch",
+        "z": "1120416.10faebf",
+        "name": "Decidiendo como te sientes",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Anger",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disgust",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Fear",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Joy",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Sadness",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 980,
+        "y": 840,
+        "wires": [
+            [
+                "84b0e10c.6ce3a"
+            ],
+            [
+                "38d80a68.56ff36"
+            ],
+            [
+                "37751300.91931e"
+            ],
+            [
+                "b8306367.f031c"
+            ],
+            [
+                "cf058f54.97a49"
+            ]
+        ]
+    },
+    {
+        "id": "84b0e10c.6ce3a",
+        "type": "tjbot-shine",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "pulse",
+        "color": "red",
+        "duration": "2",
+        "name": "Enojado",
+        "x": 1240,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "38d80a68.56ff36",
+        "type": "tjbot-shine",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "pulse",
+        "color": "green",
+        "duration": "2",
+        "name": "Disgustado",
+        "x": 1250,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "37751300.91931e",
+        "type": "tjbot-shine",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "pulse",
+        "color": "magenta",
+        "duration": "2",
+        "name": "Miedo",
+        "x": 1230,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b8306367.f031c",
+        "type": "tjbot-shine",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "pulse",
+        "color": "yellow",
+        "duration": "2",
+        "name": "Alegría",
+        "x": 1240,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "cf058f54.97a49",
+        "type": "tjbot-shine",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "mode": "pulse",
+        "color": "blue",
+        "duration": "2",
+        "name": "Triste",
+        "x": 1230,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "727871d3.1fd9e",
+        "type": "comment",
+        "z": "1120416.10faebf",
+        "name": "Analizar emociones",
+        "info": "",
+        "x": 230,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "46e16079.358fc",
+        "type": "debug",
+        "z": "1120416.10faebf",
+        "name": "Sentimiento",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 930,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "3991fcc9.7e5cf4",
+        "type": "debug",
+        "z": "1120416.10faebf",
+        "name": "Tweet",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 360,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ca4fe949.1194c8",
+        "type": "exec",
+        "z": "1120416.10faebf",
+        "command": " amixer set 'PCM'",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Volumen",
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "960137aa.484cc8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ba89585c.6c61c8",
+        "type": "inject",
+        "z": "1120416.10faebf",
+        "name": "",
+        "topic": "",
+        "payload": "10%",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "ca4fe949.1194c8"
+            ]
+        ]
+    },
+    {
+        "id": "960137aa.484cc8",
+        "type": "debug",
+        "z": "1120416.10faebf",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 530,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ec42fe1a.a2d9",
+        "type": "comment",
+        "z": "1120416.10faebf",
+        "name": "Ajustar volumen",
+        "info": "",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a31e02d7.d975",
+        "type": "tjbot-translate",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "srcLang": "es",
+        "targetLang": "en",
+        "mode": "translate",
+        "name": "",
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "a75519ad.745be8"
+            ]
+        ]
+    },
+    {
+        "id": "5eaf9324.07152c",
+        "type": "tjbot-translate",
+        "z": "1120416.10faebf",
+        "botId": "374da715.aec408",
+        "srcLang": "en",
+        "targetLang": "es",
+        "mode": "translate",
+        "name": "",
+        "x": 700,
+        "y": 560,
+        "wires": [
+            [
+                "623e70e1.b48fe"
+            ]
+        ]
+    },
+    {
+        "id": "a75519ad.745be8",
+        "type": "change",
+        "z": "1120416.10faebf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "response.translations[0].translation",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 300,
+        "wires": [
+            [
+                "ac6c22dd.0375a"
+            ]
+        ]
+    },
+    {
+        "id": "623e70e1.b48fe",
+        "type": "change",
+        "z": "1120416.10faebf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "response.translations[0].translation",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 560,
+        "wires": [
+            [
+                "3060fdf2.2136c2"
+            ]
+        ]
+    },
+    {
+        "id": "374da715.aec408",
+        "type": "tjbot-config",
+        "z": "",
+        "botGender": "female",
+        "name": "Prueba",
+        "listen": "es-ES",
+        "speak": "es-ES",
+        "hasServo": true,
+        "hasLED": true,
+        "hasSpeaker": true,
+        "hasMicrophone": true,
+        "hasCamera": true,
+        "speakerDeviceId": "plughw:0,0"
+    }
+]

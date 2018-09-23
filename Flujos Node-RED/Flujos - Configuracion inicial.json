@@ -1,29 +1,29 @@
 [
     {
-        "id": "8008dd95.f2118",
+        "id": "1729fab4.c7ab85",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Configuración inicial",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "e6751322.9d614",
+        "id": "5582f2e7.3e2bec",
         "type": "tjbot-speak",
-        "z": "8008dd95.f2118",
-        "botId": "ef8b7c16.0381b",
+        "z": "1729fab4.c7ab85",
+        "botId": "374da715.aec408",
         "mode": "speak",
         "payload": "",
         "name": "Hablar",
-        "x": 250,
-        "y": 100,
+        "x": 270,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "3626ad52.4e7ee2",
+        "id": "1361e015.e2cf5",
         "type": "exec",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "command": " amixer set 'PCM'",
         "addpay": true,
         "append": "",
@@ -31,84 +31,54 @@
         "timer": "",
         "oldrc": false,
         "name": "Volumen",
-        "x": 260,
+        "x": 280,
         "y": 180,
         "wires": [
             [
-                "8a3372f3.b48bc"
+                "46df8cd5.817054"
             ],
             [],
             []
         ]
     },
     {
-        "id": "3415eac3.008006",
+        "id": "40c32eb8.ec61c",
         "type": "inject",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "name": "",
         "topic": "",
-        "payload": "10%",
+        "payload": "75%",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 90,
+        "x": 110,
         "y": 180,
         "wires": [
             [
-                "3626ad52.4e7ee2"
+                "1361e015.e2cf5"
             ]
         ]
     },
     {
-        "id": "8a3372f3.b48bc",
+        "id": "46df8cd5.817054",
         "type": "debug",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 450,
+        "x": 470,
         "y": 180,
         "wires": []
     },
     {
-        "id": "d0aaf102.0eb56",
-        "type": "watson-translator",
-        "z": "8008dd95.f2118",
-        "name": "Español a inglés",
-        "action": "translate",
-        "basemodel": "en-nl",
-        "domain": "general",
-        "srclang": "es",
-        "destlang": "en",
-        "password": "",
-        "apikey": "igF8-eV_U1fDrvyV0IP-uiKVh18GzAZDh1pgS4mZpQjy",
-        "custom": "",
-        "domainhidden": "general",
-        "srclanghidden": "es",
-        "destlanghidden": "en",
-        "basemodelhidden": "en-nl",
-        "customhidden": "",
-        "filetype": "forcedglossary",
-        "trainid": "",
-        "lgparams2": true,
-        "neural": false,
-        "default-endpoint": true,
-        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
-        "x": 440,
-        "y": 97,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c439131a.5b183",
+        "id": "65b9fad9.8235c4",
         "type": "openweathermap",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "name": "El clima",
         "wtype": "current",
         "lon": "",
@@ -116,26 +86,26 @@
         "city": "Santa fe",
         "country": "México",
         "language": "es",
-        "x": 620,
-        "y": 100,
+        "x": 460,
+        "y": 120,
         "wires": [
             []
         ]
     },
     {
-        "id": "67f3ef91.0c6d3",
+        "id": "7e37b921.ef8be8",
         "type": "twitter out",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "twitter": "",
         "name": "Tweet",
         "x": 90,
-        "y": 100,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "5f06bd01.171e94",
+        "id": "7c1b0b47.b74bd4",
         "type": "inject",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "name": "",
         "topic": "",
         "payload": "",
@@ -144,18 +114,18 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 80,
+        "x": 120,
         "y": 240,
         "wires": [
             [
-                "61f6cb65.c9df24"
+                "e281883b.d64068"
             ]
         ]
     },
     {
-        "id": "61f6cb65.c9df24",
+        "id": "e281883b.d64068",
         "type": "exec",
-        "z": "8008dd95.f2118",
+        "z": "1729fab4.c7ab85",
         "command": "shutdown now",
         "addpay": false,
         "append": "",
@@ -163,7 +133,7 @@
         "timer": "",
         "oldrc": false,
         "name": "Apagar",
-        "x": 240,
+        "x": 280,
         "y": 240,
         "wires": [
             [],
@@ -172,11 +142,11 @@
         ]
     },
     {
-        "id": "ef8b7c16.0381b",
+        "id": "374da715.aec408",
         "type": "tjbot-config",
         "z": "",
         "botGender": "female",
-        "name": "María",
+        "name": "Prueba",
         "listen": "es-ES",
         "speak": "es-ES",
         "hasServo": true,
