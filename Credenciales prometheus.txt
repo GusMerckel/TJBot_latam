@@ -17,6 +17,8 @@ Speech to text
 
 Visual Recognition
 	Api key: OgNdOPAqLtnC-JzbX6qma3Yq5f8pd8Y0fHOMaZ7JFZ8-
+Visual Recognition
+	Api key: aog_4xRQt5BOjKdEO3DqpuPhPH3UhSOhljv2iYt53dNG
 
 Language translator:
 	Api key: DtK8eoqQ7BttDEHw7vPoumv3jJvdfVLkviLSAe_SsVhF
