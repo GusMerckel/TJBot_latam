@@ -1,0 +1,32 @@
+Tone analyzer
+	Usr: ec95127c-5bd3-4e51-b23c-2d968bccfc6a
+	Psw: IXzS1fNNARPc
+
+Conversation
+	Usr: 2d1979ba-379e-44b9-843b-5f0f72a7911a
+	Psw: FYGwzUhbLBBi
+	Wrk: d8a98ac3-3d8b-47ea-a101-fc0a823283d9
+
+Text to speech
+	Usr: 20b075ab-442d-406a-b391-5fd3a6440a95
+	Psw: G4gJ2n0sk1zZ
+
+Speech to text
+	Usr: d7dd7998-47a3-4b65-851c-6bead06b8e4c
+	Psw: QiKIWypHwkAU
+
+Visual Recognition
+	Api key: OgNdOPAqLtnC-JzbX6qma3Yq5f8pd8Y0fHOMaZ7JFZ8-
+
+Language translator:
+	Api key: DtK8eoqQ7BttDEHw7vPoumv3jJvdfVLkviLSAe_SsVhF
+
+Openweather
+	Api key: 5a7cfbe25eb08ba0b9328412147da36e
+
+Twitter
+	Usr: @Jair_LizarragaV
+	Consumer key: WtzUo0scrfV1ZUzNVrwxVvEyX
+	Consumer secret: OhpNWZDxpsoWsFbZPG9KuTnH5Jti3ex9QXl14Cawtei6S9PvjS
+	Access token: 142041689-B7tmEig3xtUCoIc6FicB8I8JwVzzKswSjbMHEBO4
+	Access Token Secret: 8t1QkLw4ka1cyZH6fHsKWTohoBYz6tP6RG52tGtYRbSYq
